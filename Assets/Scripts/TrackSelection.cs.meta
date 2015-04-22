@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 435baf283fd4c91448c63bda17b3b7dd
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - track1: {fileID: 8300000, guid: d9da4fa5977564c468f1e04c96818c2c, type: 3}
+  - track2: {fileID: 8300000, guid: ea67e1257e48b2d4eb0b3bf1a0a4f86a, type: 3}
+  - track3: {fileID: 8300000, guid: 2a7b557c14f886a469759892b02adf48, type: 3}
+  - track4: {fileID: 8300000, guid: 760179aac85468f44a722abbecf0e9f7, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
