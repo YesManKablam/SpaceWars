@@ -5,12 +5,11 @@ public class PlayerDeath : MonoBehaviour {
 	
 	public int damage = 0;
 	public float invul = 0;
-	int startLayer;
 	SpriteRenderer sr;
 	public GameObject spawner;
+	public GameObject player;
 
 	void Start (){
-		startLayer = gameObject.layer;
 		spawner = GameObject.Find ("EnemySpawn");
 		sr = GetComponent<SpriteRenderer> ();
 
@@ -23,36 +22,21 @@ public class PlayerDeath : MonoBehaviour {
 		damage += 1;
 		invul += 10;
 		gameObject.layer = 10;
+		int currScore;
 		if (damage >= 3) {
-			int currScore;
-			currScore = spawner.GetComponent<EnemySpawnDynamic>().score;
-			PlayerPrefs.SetInt("currentScore", currScore);
-			Debug.Log ("Player Prefs score: " + PlayerPrefs.GetInt("currentScore"));
-			Destroy (gameObject);
-		}
-	}
+			//currScore = spawner.GetComponent<EnemySpawnDynamic> ().score;
+//			if (currScore == 0) //{
+				//currScore = spawner.GetComponent<EnemySpawnerHard> ().score;
+			//} else if (currScore == 0) {
+			//	currScore = spawner.GetComponent<EnemySpanwerMedium> ().score;
+		//	}
 
-	void Update()
-	{
-		if (invul > 0) 
-		{
-			invul -= Time.deltaTime;
-			if (invul <= 0) 
-			{
-				gameObject.layer = startLayer;
-				if(sr != null)
-				{
-					sr.enabled = true;
-				}
-			}
-			else
-			{
-				if(sr != null)
-				{
-					sr.enabled = !sr.enabled;
-				}
-			}
-		}
+		//	PlayerPrefs.SetInt ("currentScore", currScore);
+			//Debug.Log ("Player Prefs score: " + PlayerPrefs.GetInt ("currentScore"));
+			Destroy (player);
+			Debug.Log("Dead");
+		//}
 	}
 }
 
+}

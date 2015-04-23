@@ -8,7 +8,13 @@ public class EnemySpawnerHard : MonoBehaviour {
 	GameObject enemyInstance0;
 	GameObject enemyInstance1;
 	public int spawnLocation;
-	public float timer; 
+	public float timer;
+	public int score;
+
+	void Start(){
+		PlayerPrefs.SetInt("currentScore", 0);
+		score = 0;
+	}
 	
 	
 	void spawn()
@@ -40,6 +46,7 @@ public class EnemySpawnerHard : MonoBehaviour {
 		if (enemy == 1) {
 			enemyInstance0 = (GameObject)Instantiate (enemy0, new Vector3 (4, 10, -2), Quaternion.identity);
 			enemyInstance0 = (GameObject)Instantiate (enemy0, new Vector3 (-4, 10, -2), Quaternion.identity);
+			score += 2;
 		} else if (enemy == 2) {
 			enemyInstance1 = (GameObject)Instantiate (enemy1, new Vector3 (-4, 10, -2), Quaternion.identity); //
 			enemyInstance1 = (GameObject)Instantiate (enemy1, new Vector3 (-2, 10, -2), Quaternion.identity); //
@@ -50,6 +57,7 @@ public class EnemySpawnerHard : MonoBehaviour {
 			enemyInstance1 = (GameObject)Instantiate (enemy1, new Vector3 (-3, 8, -2), Quaternion.identity); //
 			enemyInstance1 = (GameObject)Instantiate (enemy1, new Vector3 (-1, 8, -2), Quaternion.identity); //
 			enemyInstance1 = (GameObject)Instantiate (enemy1, new Vector3 (0, 6, -2), Quaternion.identity); //
+			score+=9;
 		}
 	}
 	
@@ -57,18 +65,21 @@ public class EnemySpawnerHard : MonoBehaviour {
 	{
 		enemyInstance0 = (GameObject)Instantiate (enemy0, new Vector3 (4, -10, -2), Quaternion.identity);
 		enemyInstance0 = (GameObject)Instantiate (enemy0, new Vector3 (-4, -10, -2), Quaternion.identity);
+		score += 2;
 	}
 	
 	void spawnPos2()
 	{
 		enemyInstance0 = (GameObject)Instantiate (enemy0, new Vector3 (10, 4, -2), Quaternion.identity);
 		enemyInstance0 = (GameObject)Instantiate (enemy0, new Vector3 (10, -4, -2), Quaternion.identity);
+		score += 2;
 	}
 	
 	void spawnPos3()
 	{
 		enemyInstance0 = (GameObject)Instantiate (enemy0, new Vector3 (-10, 4, -2), Quaternion.identity);
 		enemyInstance0 = (GameObject)Instantiate (enemy0, new Vector3 (-10, -4, -2), Quaternion.identity);
+		score += 2;
 	}
 	
 	void Update()

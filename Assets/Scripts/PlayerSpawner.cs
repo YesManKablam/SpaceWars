@@ -5,13 +5,15 @@ public class PlayerSpawner : MonoBehaviour {
 
 	public GameObject playerPrefab;
 	GameObject playerInstance;
-	float respawnTimer = 1;
+	public float respawnTimer = 2;
+	public float tmpSpawn;
 	public int numDeath = 0;
 
 	// Use this for initialization
 	void Start () {
 		spawnPlayer ();
-	}
+		tmpSpawn = respawnTimer;
+	}	
 
 	void spawnPlayer()
 	{
@@ -28,12 +30,12 @@ public class PlayerSpawner : MonoBehaviour {
 			if(respawnTimer <= 0){
 				spawnPlayer();
 			}
+
+			if(numDeath == 3)
+			{
+				Application.LoadLevel("_Scene_4");
+			}
 		}
 	
 	}
-
-	/*void OnGUI()
-	{
-		//GUI.Label (new Rect (0, 0, 100, 50), "Spawn #" + numDeath);
-	}*/
 }
